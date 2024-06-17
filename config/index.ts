@@ -1,0 +1,9 @@
+const config = {
+  db: {
+
+  },
+  server:{
+    
+  },
+  
+}

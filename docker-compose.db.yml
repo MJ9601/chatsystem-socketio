@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  postgres_db:
+    container_name: 'manshor-db'
+    image: postgres:15-alpine
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    # volumes:
+    #   - db:/var/lib/postgresql/data
+
+  pgAdmin4:
+    image: dpage/pgadmin4
+    container_name: pgAdmin
+    ports:
+      - 5000:80
+    env_file:
+      - .env
+  # environment:
+  #   PGADMIN_DEFAULT_EMAIL: root@mail.com
+  #   PGADMIN_DEFAULT_PASSWORD: password
+
+networks:
+  specific-network-name:
+    external: false
+    name: manshor

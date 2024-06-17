@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  app:
+    container_name: manshor-app
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - 4000:4000
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    # command: yarn start
+    # depends_on:
+    #   - db
+
+networks:
+  specific-network-name:
+    external: true
